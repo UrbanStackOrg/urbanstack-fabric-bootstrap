@@ -11,7 +11,7 @@ OrdererOrgs:
   # Orderer
   # ---------------------------------------------------------------------------
   - Name: Orderer
-    Domain: morpheo.co
+    Domain: urbanstack.co
     # ---------------------------------------------------------------------------
     # "Specs" - See PeerOrgs below for complete description
     # ---------------------------------------------------------------------------
@@ -25,7 +25,7 @@ PeerOrgs:
   # Aphp
   # ---------------------------------------------------------------------------
   - Name: Aphp
-    Domain: aphp.morpheo.co
+    Domain: aphp.urbanstack.co
     EnableNodeOUs: true
     # ---------------------------------------------------------------------------
     # "Specs"
@@ -44,8 +44,8 @@ PeerOrgs:
     #                 Org.Domain, respectively.
     # ---------------------------------------------------------------------------
     # Specs:
-    #   - Hostname: foo # implicitly "foo.aphp.morpheo.co"
-    #     CommonName: foo27.org5.morpheo.co # overrides Hostname-based FQDN set above
+    #   - Hostname: foo # implicitly "foo.aphp.urbanstack.co"
+    #     CommonName: foo27.org5.urbanstack.co # overrides Hostname-based FQDN set above
     #   - Hostname: bar
     #   - Hostname: baz
     # ---------------------------------------------------------------------------
@@ -75,7 +75,7 @@ PeerOrgs:
   # Org2: See "Aphp" for full specification
   # ---------------------------------------------------------------------------
   - Name: Org2
-    Domain: org2.morpheo.co
+    Domain: org2.urbanstack.co
     EnableNodeOUs: true
     Template:
       Count: 2

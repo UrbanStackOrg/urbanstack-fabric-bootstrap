@@ -20,7 +20,7 @@ TIMEOUT="$4"
 LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
 COUNTER=1
 MAX_RETRY=5
-ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/morpheo.co/orderers/orderer.morpheo.co/msp/tlscacerts/tlsca.morpheo.co-cert.pem
+ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/urbanstack.co/orderers/orderer.urbanstack.co/msp/tlscacerts/tlsca.urbanstack.co-cert.pem
 
 CC_SRC_PATH="github.com/chaincode/"
 if [ "$LANGUAGE" = "node" ]; then
@@ -86,12 +86,12 @@ addCapabilityToChannel() {
 
         if [ -z "$CORE_PEER_TLS_ENABLED" -o "$CORE_PEER_TLS_ENABLED" = "false" ]; then
                 set -x
-                peer channel update -f config_update_in_envelope.pb -c $CH_NAME -o orderer.morpheo.co:7050 --cafile $ORDERER_CA
+                peer channel update -f config_update_in_envelope.pb -c $CH_NAME -o orderer.urbanstack.co:7050 --cafile $ORDERER_CA
                 res=$?
                 set +x
         else
                 set -x
-                peer channel update -f config_update_in_envelope.pb -c $CH_NAME -o orderer.morpheo.co:7050 --tls true --cafile $ORDERER_CA
+                peer channel update -f config_update_in_envelope.pb -c $CH_NAME -o orderer.urbanstack.co:7050 --tls true --cafile $ORDERER_CA
                 res=$?
                 set +x
         fi

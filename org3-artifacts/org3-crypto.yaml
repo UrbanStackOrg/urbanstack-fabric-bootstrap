@@ -11,7 +11,7 @@ PeerOrgs:
   # Org3
   # ---------------------------------------------------------------------------
   - Name: Org3
-    Domain: org3.morpheo.co
+    Domain: org3.urbanstack.co
     EnableNodeOUs: true
     Template:
       Count: 2

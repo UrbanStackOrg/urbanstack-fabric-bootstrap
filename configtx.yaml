@@ -59,7 +59,7 @@ Organizations:
         ID: OrdererMSP
 
         # MSPDir is the filesystem path which contains the MSP configuration
-        MSPDir: crypto-config/ordererOrganizations/morpheo.co/msp
+        MSPDir: crypto-config/ordererOrganizations/urbanstack.co/msp
 
     - &Aphp
         # DefaultOrg defines the organization which is used in the sampleconfig
@@ -69,13 +69,13 @@ Organizations:
         # ID to load the MSP definition as
         ID: AphpMSP
 
-        MSPDir: crypto-config/peerOrganizations/aphp.morpheo.co/msp
+        MSPDir: crypto-config/peerOrganizations/aphp.urbanstack.co/msp
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
             # for cross org gossip communication.  Note, this value is only
             # encoded in the genesis block in the Application section context
-            - Host: peer0.aphp.morpheo.co
+            - Host: peer0.aphp.urbanstack.co
               Port: 7051
 
     - &Org2
@@ -86,13 +86,13 @@ Organizations:
         # ID to load the MSP definition as
         ID: Org2MSP
 
-        MSPDir: crypto-config/peerOrganizations/org2.morpheo.co/msp
+        MSPDir: crypto-config/peerOrganizations/org2.urbanstack.co/msp
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
             # for cross org gossip communication.  Note, this value is only
             # encoded in the genesis block in the Application section context
-            - Host: peer0.org2.morpheo.co
+            - Host: peer0.org2.urbanstack.co
               Port: 7051
 
 ################################################################################
@@ -110,7 +110,7 @@ Orderer: &OrdererDefaults
     OrdererType: solo
 
     Addresses:
-        - orderer.morpheo.co:7050
+        - orderer.urbanstack.co:7050
 
     # Batch Timeout: The amount of time to wait before creating a batch
     BatchTimeout: 2s

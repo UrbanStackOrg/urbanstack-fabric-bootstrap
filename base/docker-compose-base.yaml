@@ -7,8 +7,8 @@ version: '2'
 
 services:
 
-  orderer.morpheo.co:
-    container_name: orderer.morpheo.co
+  orderer.urbanstack.co:
+    container_name: orderer.urbanstack.co
     image: hyperledger/fabric-orderer:$IMAGE_TAG
     environment:
       - ORDERER_GENERAL_LOGLEVEL=INFO
@@ -26,89 +26,89 @@ services:
     command: orderer
     volumes:
     - ../artifacts/genesis.block:/var/hyperledger/orderer/orderer.genesis.block
-    - ../crypto-config/ordererOrganizations/morpheo.co/orderers/orderer.morpheo.co/msp:/var/hyperledger/orderer/msp
-    - ../crypto-config/ordererOrganizations/morpheo.co/orderers/orderer.morpheo.co/tls/:/var/hyperledger/orderer/tls
-    - orderer.morpheo.co:/var/hyperledger/production/orderer
+    - ../crypto-config/ordererOrganizations/urbanstack.co/orderers/orderer.urbanstack.co/msp:/var/hyperledger/orderer/msp
+    - ../crypto-config/ordererOrganizations/urbanstack.co/orderers/orderer.urbanstack.co/tls/:/var/hyperledger/orderer/tls
+    - orderer.urbanstack.co:/var/hyperledger/production/orderer
     ports:
       - 7050:7050
 
-  peer0.aphp.morpheo.co:
-    container_name: peer0.aphp.morpheo.co
+  peer0.aphp.urbanstack.co:
+    container_name: peer0.aphp.urbanstack.co
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer0.aphp.morpheo.co
-      - CORE_PEER_ADDRESS=peer0.aphp.morpheo.co:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.aphp.morpheo.co:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.aphp.morpheo.co:7051
+      - CORE_PEER_ID=peer0.aphp.urbanstack.co
+      - CORE_PEER_ADDRESS=peer0.aphp.urbanstack.co:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.aphp.urbanstack.co:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.aphp.urbanstack.co:7051
       - CORE_PEER_LOCALMSPID=AphpMSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/aphp.morpheo.co/peers/peer0.aphp.morpheo.co/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/aphp.morpheo.co/peers/peer0.aphp.morpheo.co/tls:/etc/hyperledger/fabric/tls
-        - peer0.aphp.morpheo.co:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/aphp.urbanstack.co/peers/peer0.aphp.urbanstack.co/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/aphp.urbanstack.co/peers/peer0.aphp.urbanstack.co/tls:/etc/hyperledger/fabric/tls
+        - peer0.aphp.urbanstack.co:/var/hyperledger/production
     ports:
       - 7051:7051
       - 7053:7053
 
-  peer1.aphp.morpheo.co:
-    container_name: peer1.aphp.morpheo.co
+  peer1.aphp.urbanstack.co:
+    container_name: peer1.aphp.urbanstack.co
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer1.aphp.morpheo.co
-      - CORE_PEER_ADDRESS=peer1.aphp.morpheo.co:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.aphp.morpheo.co:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.aphp.morpheo.co:7051
+      - CORE_PEER_ID=peer1.aphp.urbanstack.co
+      - CORE_PEER_ADDRESS=peer1.aphp.urbanstack.co:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.aphp.urbanstack.co:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.aphp.urbanstack.co:7051
       - CORE_PEER_LOCALMSPID=AphpMSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/aphp.morpheo.co/peers/peer1.aphp.morpheo.co/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/aphp.morpheo.co/peers/peer1.aphp.morpheo.co/tls:/etc/hyperledger/fabric/tls
-        - peer1.aphp.morpheo.co:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/aphp.urbanstack.co/peers/peer1.aphp.urbanstack.co/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/aphp.urbanstack.co/peers/peer1.aphp.urbanstack.co/tls:/etc/hyperledger/fabric/tls
+        - peer1.aphp.urbanstack.co:/var/hyperledger/production
 
     ports:
       - 8051:7051
       - 8053:7053
 
-  peer0.org2.morpheo.co:
-    container_name: peer0.org2.morpheo.co
+  peer0.org2.urbanstack.co:
+    container_name: peer0.org2.urbanstack.co
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer0.org2.morpheo.co
-      - CORE_PEER_ADDRESS=peer0.org2.morpheo.co:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.morpheo.co:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org2.morpheo.co:7051
+      - CORE_PEER_ID=peer0.org2.urbanstack.co
+      - CORE_PEER_ADDRESS=peer0.org2.urbanstack.co:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.urbanstack.co:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org2.urbanstack.co:7051
       - CORE_PEER_LOCALMSPID=Org2MSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org2.morpheo.co/peers/peer0.org2.morpheo.co/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org2.morpheo.co/peers/peer0.org2.morpheo.co/tls:/etc/hyperledger/fabric/tls
-        - peer0.org2.morpheo.co:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/org2.urbanstack.co/peers/peer0.org2.urbanstack.co/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org2.urbanstack.co/peers/peer0.org2.urbanstack.co/tls:/etc/hyperledger/fabric/tls
+        - peer0.org2.urbanstack.co:/var/hyperledger/production
     ports:
       - 9051:7051
       - 9053:7053
 
-  peer1.org2.morpheo.co:
-    container_name: peer1.org2.morpheo.co
+  peer1.org2.urbanstack.co:
+    container_name: peer1.org2.urbanstack.co
     extends:
       file: peer-base.yaml
       service: peer-base
     environment:
-      - CORE_PEER_ID=peer1.org2.morpheo.co
-      - CORE_PEER_ADDRESS=peer1.org2.morpheo.co:7051
-      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.morpheo.co:7051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.morpheo.co:7051
+      - CORE_PEER_ID=peer1.org2.urbanstack.co
+      - CORE_PEER_ADDRESS=peer1.org2.urbanstack.co:7051
+      - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.urbanstack.co:7051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.urbanstack.co:7051
       - CORE_PEER_LOCALMSPID=Org2MSP
     volumes:
         - /var/run/:/host/var/run/
-        - ../crypto-config/peerOrganizations/org2.morpheo.co/peers/peer1.org2.morpheo.co/msp:/etc/hyperledger/fabric/msp
-        - ../crypto-config/peerOrganizations/org2.morpheo.co/peers/peer1.org2.morpheo.co/tls:/etc/hyperledger/fabric/tls
-        - peer1.org2.morpheo.co:/var/hyperledger/production
+        - ../crypto-config/peerOrganizations/org2.urbanstack.co/peers/peer1.org2.urbanstack.co/msp:/etc/hyperledger/fabric/msp
+        - ../crypto-config/peerOrganizations/org2.urbanstack.co/peers/peer1.org2.urbanstack.co/tls:/etc/hyperledger/fabric/tls
+        - peer1.org2.urbanstack.co:/var/hyperledger/production
     ports:
       - 10051:7051
       - 10053:7053

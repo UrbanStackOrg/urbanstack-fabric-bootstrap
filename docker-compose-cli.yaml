@@ -6,54 +6,54 @@
 version: '2'
 
 volumes:
-  orderer.morpheo.co:
-  peer0.aphp.morpheo.co:
-  peer1.aphp.morpheo.co:
-  peer0.org2.morpheo.co:
-  peer1.org2.morpheo.co:
+  orderer.urbanstack.co:
+  peer0.aphp.urbanstack.co:
+  peer1.aphp.urbanstack.co:
+  peer0.org2.urbanstack.co:
+  peer1.org2.urbanstack.co:
 
 networks:
   byfn:
 
 services:
 
-  orderer.morpheo.co:
+  orderer.urbanstack.co:
     extends:
       file:   base/docker-compose-base.yaml
-      service: orderer.morpheo.co
-    container_name: orderer.morpheo.co
+      service: orderer.urbanstack.co
+    container_name: orderer.urbanstack.co
     networks:
       - byfn
 
-  peer0.aphp.morpheo.co:
-    container_name: peer0.aphp.morpheo.co
+  peer0.aphp.urbanstack.co:
+    container_name: peer0.aphp.urbanstack.co
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.aphp.morpheo.co
+      service: peer0.aphp.urbanstack.co
     networks:
       - byfn
 
-  peer1.aphp.morpheo.co:
-    container_name: peer1.aphp.morpheo.co
+  peer1.aphp.urbanstack.co:
+    container_name: peer1.aphp.urbanstack.co
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.aphp.morpheo.co
+      service: peer1.aphp.urbanstack.co
     networks:
       - byfn
 
-  peer0.org2.morpheo.co:
-    container_name: peer0.org2.morpheo.co
+  peer0.org2.urbanstack.co:
+    container_name: peer0.org2.urbanstack.co
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer0.org2.morpheo.co
+      service: peer0.org2.urbanstack.co
     networks:
       - byfn
 
-  peer1.org2.morpheo.co:
-    container_name: peer1.org2.morpheo.co
+  peer1.org2.urbanstack.co:
+    container_name: peer1.org2.urbanstack.co
     extends:
       file:  base/docker-compose-base.yaml
-      service: peer1.org2.morpheo.co
+      service: peer1.org2.urbanstack.co
     networks:
       - byfn
 
@@ -68,26 +68,26 @@ services:
       #- CORE_LOGGING_LEVEL=DEBUG
       - CORE_LOGGING_LEVEL=INFO
       - CORE_PEER_ID=cli
-      - CORE_PEER_ADDRESS=peer0.aphp.morpheo.co:7051
+      - CORE_PEER_ADDRESS=peer0.aphp.urbanstack.co:7051
       - CORE_PEER_LOCALMSPID=AphpMSP
       - CORE_PEER_TLS_ENABLED=true
-      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/aphp.morpheo.co/peers/peer0.aphp.morpheo.co/tls/server.crt
-      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/aphp.morpheo.co/peers/peer0.aphp.morpheo.co/tls/server.key
-      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/aphp.morpheo.co/peers/peer0.aphp.morpheo.co/tls/ca.crt
-      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/aphp.morpheo.co/users/Admin@aphp.morpheo.co/msp
+      - CORE_PEER_TLS_CERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/aphp.urbanstack.co/peers/peer0.aphp.urbanstack.co/tls/server.crt
+      - CORE_PEER_TLS_KEY_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/aphp.urbanstack.co/peers/peer0.aphp.urbanstack.co/tls/server.key
+      - CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/aphp.urbanstack.co/peers/peer0.aphp.urbanstack.co/tls/ca.crt
+      - CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/aphp.urbanstack.co/users/Admin@aphp.urbanstack.co/msp
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
         - /var/run/:/host/var/run/
-        - ./../morpheo-orchestrator-chaincode/:/opt/gopath/src/github.com/chaincode
+        - ./../urbanstack-orchestrator-chaincode/:/opt/gopath/src/github.com/chaincode
         - ./crypto-config:/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/
         - ./scripts:/opt/gopath/src/github.com/hyperledger/fabric/peer/scripts/
         - ./artifacts:/opt/gopath/src/github.com/hyperledger/fabric/peer/artifacts
     depends_on:
-      - orderer.morpheo.co
-      - peer0.aphp.morpheo.co
-      - peer1.aphp.morpheo.co
-      - peer0.org2.morpheo.co
-      - peer1.org2.morpheo.co
+      - orderer.urbanstack.co
+      - peer0.aphp.urbanstack.co
+      - peer1.aphp.urbanstack.co
+      - peer0.org2.urbanstack.co
+      - peer1.org2.urbanstack.co
     networks:
       - byfn

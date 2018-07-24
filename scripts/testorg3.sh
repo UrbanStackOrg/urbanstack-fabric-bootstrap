@@ -30,7 +30,7 @@ TIMEOUT="$4"
 LANGUAGE=`echo "$LANGUAGE" | tr [:upper:] [:lower:]`
 COUNTER=1
 MAX_RETRY=5
-ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/morpheo.co/orderers/orderer.morpheo.co/msp/tlscacerts/tlsca.morpheo.co-cert.pem
+ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/urbanstack.co/orderers/orderer.urbanstack.co/msp/tlscacerts/tlsca.urbanstack.co-cert.pem
 
 CC_SRC_PATH="github.com/chaincode/"
 if [ "$LANGUAGE" = "node" ]; then
